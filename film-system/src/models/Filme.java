@@ -1,7 +1,9 @@
 package models;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class Filme {
 	private String nome;
@@ -35,9 +37,12 @@ public class Filme {
 	public String exibirDetalhes() {
 		String nomeDiretor = (diretor != null) ? diretor.getNome() : "Diretor não definido";
 		
+		NumberFormat formatoMoeda = NumberFormat.getCurrencyInstance(new Locale("pt", "BR"));
+		String orcamentoFormatado = formatoMoeda.format(orcamento);
+		
 		return "Filme: " + nome +
 				"\nData de lançamento: " + dataLancamento +
-				"\nOrçamento: " + orcamento +
+				"\nOrçamento: " + orcamentoFormatado +
 				"\nDescrição: " + descricao +
 				"\n\nDiretor: " + nomeDiretor +
 				"\nQuantidade de atores: " + atores.size();
