@@ -40,11 +40,25 @@ public class Filme {
 		NumberFormat formatoMoeda = NumberFormat.getCurrencyInstance(new Locale("pt", "BR"));
 		String orcamentoFormatado = formatoMoeda.format(orcamento);
 		
-		return "Filme: " + nome +
-				"\nData de lançamento: " + dataLancamento +
-				"\nOrçamento: " + orcamentoFormatado +
-				"\nDescrição: " + descricao +
-				"\n\nDiretor: " + nomeDiretor +
-				"\nQuantidade de atores: " + atores.size();
+		String listaAtores = "Não definido";
+		
+		if (!atores.isEmpty()) {
+			listaAtores = "";
+			
+			for (Ator ator : atores) {
+				listaAtores += ator.getNome() + ", ";
+			}
+			
+			listaAtores = listaAtores.substring(0, listaAtores.length() - 2);
+		}
+		
+		return "\n--------- ADA FLIX - CATÁLOGO ---------\n\n" +
+				"Filme: " + nome.toUpperCase() + "\n" +
+				"Ano de lançamento: " + dataLancamento + "\n\n" +
+				"Descrição:\n" + descricao + "\n\n" +
+				"Atores: " + listaAtores + "\n" +
+				"Diretor: " + nomeDiretor + "\n" +
+				"Orçamento: " + orcamentoFormatado + "\n\n" +
+				"------ © 2026 Grupo 4 - Ada Flix ------";
 	}
 }
