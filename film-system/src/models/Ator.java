@@ -2,18 +2,19 @@ package models;
 
 //Thiago Manhães Lima
 public class Ator extends Pessoa {
+    private String personagem;
 
-
-    public Ator(String nome, String dataNascimento, int numeroFilmes, String personagem) {
+    public Ator(String nome, String dataNascimento, String personagem) {
         super(nome, dataNascimento);
-        this.numeroFilmes = numeroFilmes;
         this.personagem = personagem;
     }
 
-    public int getNumeroFilmes (){
-            return numeroFilmes;
-        }
-    public int getPersonagem() {
+    @Override
+    public String exibirDetalhes() {
+        return "Ator: " + getNome() + " | Nascimento: " + getDataNascimento() + " | Personagem: " + personagem;
+    }
+
+    public String getPersonagem() {
         return personagem;
     }
 

@@ -22,12 +22,24 @@ public class PessoaService {
         System.out.println("Diretor cadastrado com sucesso!");
     }
 
-    public List<Ator> getAtores() {
-        return atores;
+    public Ator buscarAtorPorNome(String nome) {
+        for (Ator ator : atores) {
+            if (ator.getNome().equalsIgnoreCase(nome)) {
+                return ator;
+            }
+        }
+        System.out.println("Ator não encontrado.");
+        return null;
     }
 
-    public List<Diretor> getDiretores() {
-        return diretores;
+    public Diretor buscarDiretorPorNome(String nome) {
+        for (Diretor diretor : diretores) {
+            if (diretor.getNome().equalsIgnoreCase(nome)) {
+                return diretor;
+            }
+        }
+        System.out.println("Diretor não encontrado.");
+        return null;
     }
 
     public void listarAtores() {
@@ -36,7 +48,7 @@ public class PessoaService {
             return;
         }
         for (Ator ator : atores) {
-            System.out.println("- " + ator.getNome());
+            System.out.println(ator.exibirDetalhes());
         }
     }
 
@@ -46,7 +58,15 @@ public class PessoaService {
             return;
         }
         for (Diretor diretor : diretores) {
-            System.out.println("- " + diretor.getNome());
+            System.out.println(diretor.exibirDetalhes());
         }
+    }
+
+    public List<Ator> getAtores() {
+        return atores;
+    }
+
+    public List<Diretor> getDiretores() {
+        return diretores;
     }
 }

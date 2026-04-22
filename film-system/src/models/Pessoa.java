@@ -8,7 +8,9 @@ public abstract class Pessoa {
 		this.nome = nome;
 		this.dataNascimento = dataNascimento;
 	}
-	
+
+	public abstract String exibirDetalhes();
+
 	public String getNome() {
 		return nome;
 	}
